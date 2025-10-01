@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Bike
   - Wall
+  - Trail
   layers:
   - Default
   - TransparentFX
