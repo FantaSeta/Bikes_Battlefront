@@ -7,6 +7,7 @@ TagManager:
   - Bike
   - Wall
   - Trail
+  - Bullet
   layers:
   - Default
   - TransparentFX
@@ -43,4 +44,10 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Bikes
+    uniqueID: 3053747993
+    locked: 0
+  - name: Trail
+    uniqueID: 3151440803
     locked: 0
