@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using Photon.Pun;
 
 public class CycleController : MonoBehaviour
@@ -12,19 +13,27 @@ public class CycleController : MonoBehaviour
     [SerializeField] GameObject trail;
     public float spawnInterval = 0.1f;
     private float timer = 0f;
+
+    [SerializeField] private GameObject readyImage;
+    [SerializeField] private GameObject setImage;
+    [SerializeField] private GameObject goImage;
     // Start is called before the first frame update
     void Start()
     {
+        isAlive = false;
+        StartCoroutine(StartAfterDelay(3f));
+    }
+    IEnumerator StartAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(3f);
         isAlive = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (isAlive == false)
-        {
-            Destroy(trail);
-        }
+        if(!isAlive) return;
+
         if (Input.GetKeyDown(KeyCode.A))
         {
             transform.Rotate(0, -90, 0);
@@ -44,6 +53,7 @@ public class CycleController : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (!isAlive) return;
         rb.MovePosition(transform.position + transform.forward * speed * Time.deltaTime);
     }
 
@@ -61,8 +71,10 @@ public class CycleController : MonoBehaviour
             Destroy(gameObject);
             isAlive = false;
         }
-
-        if (collision.gameObject.CompareTag("Wall"))
+    }
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Wall"))
         {
             Destroy(gameObject);
             isAlive = false;

@@ -13,7 +13,7 @@ public class Menu2Manager : MonoBehaviourPunCallbacks
     void Start()
     {
         PhotonNetwork.NickName = "User" + Random.Range(1, 9999);
-        Log("Player Name: " + PhotonNetwork.NickName);
+        Log("User Name: " + PhotonNetwork.NickName);
         // Configurando el juego
         PhotonNetwork.AutomaticallySyncScene = true;
         PhotonNetwork.GameVersion = "1";
@@ -54,6 +54,6 @@ public class Menu2Manager : MonoBehaviourPunCallbacks
         //Leer el texto que el jugador ha escrito en el InputField
         PhotonNetwork.NickName = inputField.text;
         //Generando el nuevo apodo
-        Log("New Player name: " + PhotonNetwork.NickName);
+        Log("New User name: " + PhotonNetwork.NickName);
     }
 }

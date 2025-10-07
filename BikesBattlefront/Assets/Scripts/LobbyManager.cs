@@ -78,7 +78,7 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     [PunRPC]
     public void ShowPlayers()
     {
-        PlayersText.text = "Players: ";
+        PlayersText.text = "Users: ";
         foreach (Photon.Realtime.Player otherPlayer in PhotonNetwork.PlayerList)
         {
             PlayersText.text += "\n";

@@ -231,8 +231,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 20, y: 24.13522, z: 42.52111}
-  m_Center: {x: -2.001425e-13, y: 3, z: 33.80235}
+  m_Size: {x: 17.17056, y: 24.13522, z: 42.52111}
+  m_Center: {x: -0.62882125, y: 3.0000007, z: 33.80235}
 --- !u!54 &4806044596620535907
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -277,6 +277,9 @@ MonoBehaviour:
   speed: 50
   trail: {fileID: 1805045935854173398, guid: 6da97972a5668d144b618a9455cb7d8f, type: 3}
   spawnInterval: 0.1
+  readyImage: {fileID: 0}
+  setImage: {fileID: 0}
+  goImage: {fileID: 0}
 --- !u!114 &-7276607923537971657
 MonoBehaviour:
   m_ObjectHideFlags: 0
