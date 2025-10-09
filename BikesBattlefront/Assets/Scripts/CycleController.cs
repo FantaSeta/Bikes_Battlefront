@@ -13,10 +13,6 @@ public class CycleController : MonoBehaviour
     [SerializeField] GameObject trail;
     public float spawnInterval = 0.1f;
     private float timer = 0f;
-
-    [SerializeField] private GameObject readyImage;
-    [SerializeField] private GameObject setImage;
-    [SerializeField] private GameObject goImage;
     // Start is called before the first frame update
     void Start()
     {

@@ -4,10 +4,11 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Bike
   - Wall
   - Trail
   - Bullet
+  - TeamBlue
+  - TeamOrange
   layers:
   - Default
   - TransparentFX
