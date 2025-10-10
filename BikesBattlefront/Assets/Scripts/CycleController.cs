@@ -6,13 +6,16 @@ using Photon.Pun;
 
 public class CycleController : MonoBehaviour
 {
-    [SerializeField] bool isAlive;
+    [SerializeField] public bool isAlive;
     [SerializeField] Rigidbody rb;
     [SerializeField] float speed;
 
     [SerializeField] GameObject trail;
     public float spawnInterval = 0.1f;
     private float timer = 0f;
+
+    public enum teams { blue, orange }
+    public teams Team;
     // Start is called before the first frame update
     void Start()
     {

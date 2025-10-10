@@ -17,6 +17,11 @@ public class GameManager : MonoBehaviourPunCallbacks
     [SerializeField] GameObject readyImage;
     [SerializeField] GameObject setImage;
     [SerializeField] GameObject goImage;
+
+    GameObject[] players;
+    List<string> activePlayers = new List<string>();
+    int checkPlayers = 0;
+    [SerializeField] public TMP_Text playersText;
     void Start()
     {
         if (PhotonNetwork.IsConnected)
@@ -28,6 +33,28 @@ public class GameManager : MonoBehaviourPunCallbacks
         {
             Debug.LogError("No estás conectado a Photon.");
         }
+    }
+    [PunRPC]
+    public void PlayerList()
+    {
+        players = GameObject.FindGameObjectsWithTag("Player");
+        activePlayers.Clear();
+        foreach(GameObject player in players)
+        {
+            // If the player is alive, then
+            if(player.GetComponent<CycleController>().isAlive == false)
+            {
+                // Adding their nicknames to the activePlayers list
+                activePlayers.Add(player.GetComponent<PhotonView>().Owner.NickName);
+            }
+        }
+        playersText.text = "Users in game : " + activePlayers.Count.ToString();
+        if (activePlayers.Count <= 1 && checkPlayers > 0)
+        {
+            Invoke("EndGame", 5f);
+        }
+
+        checkPlayers++;
     }
     IEnumerator ShowCountdown()
     {

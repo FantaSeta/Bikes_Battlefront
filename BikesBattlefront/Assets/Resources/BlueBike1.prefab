@@ -283,6 +283,7 @@ MonoBehaviour:
   speed: 50
   trail: {fileID: 1805045935854173398, guid: 6da97972a5668d144b618a9455cb7d8f, type: 3}
   spawnInterval: 0.1
+  Team: 0
 --- !u!114 &-7276607923537971657
 MonoBehaviour:
   m_ObjectHideFlags: 0
