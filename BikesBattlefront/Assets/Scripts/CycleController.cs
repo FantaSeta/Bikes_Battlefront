@@ -19,12 +19,18 @@ public class CycleController : MonoBehaviour
 
     [SerializeField] Transform camara;
 
-    [SerializeField] GameObject GameManager;
+    [SerializeField] AudioClip turning;
+    public AudioSource audioSource;
     // Start is called before the first frame update
     void Start()
     {
         isAlive = false;
-        GameManager = GameObject.Find("GameManager");
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+        }
+        audioSource.clip = turning;
         StartCoroutine(StartAfterDelay(3f));
     }
     IEnumerator StartAfterDelay(float delay)
@@ -41,10 +47,12 @@ public class CycleController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.A))
         {
             transform.Rotate(0, -90, 0);
+            audioSource.Play();
         }
         if (Input.GetKeyDown(KeyCode.D))
         {
             transform.Rotate(0, 90, 0);
+            audioSource.Play();
         }
 
         timer += Time.deltaTime;
@@ -74,7 +82,8 @@ public class CycleController : MonoBehaviour
         {
             transform.Find("Camera").GetComponent<SpectatorMode>().isSpectator = true;
             camara.transform.SetParent(null);
-            GameManager.GetComponent<GameManager>().isDead = true;
+            GameObject.Find("GameManager").GetComponent<GameManager>().isDead = true;
+            GameObject.Find("GameManager").GetComponent<GameManager>().audioSource.Stop();
             gameObject.SetActive(false);
             isAlive = false;
         }
@@ -85,7 +94,8 @@ public class CycleController : MonoBehaviour
         {
             transform.Find("Camera").GetComponent<SpectatorMode>().isSpectator = true;
             camara.transform.SetParent(null);
-            GameManager.GetComponent<GameManager>().isDead = true;
+            GameObject.Find("GameManager").GetComponent<GameManager>().isDead = true;
+            GameObject.Find("GameManager").GetComponent<GameManager>().audioSource.Stop();
             gameObject.SetActive(false);
             isAlive = false;
         }

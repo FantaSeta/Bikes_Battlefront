@@ -26,11 +26,23 @@ public class GameManager : MonoBehaviourPunCallbacks
     private int previousPlayerCount;
 
     public bool isDead;
+
+    [SerializeField] AudioClip startSound;
+    [SerializeField] AudioClip bikeSound;
+    public AudioSource audioSource;
+
     void Start()
     {
         if (PhotonNetwork.IsConnected)
         {
             SpawnPlayer();
+            audioSource = GetComponent<AudioSource>();
+            if (audioSource == null)
+            {
+                audioSource = gameObject.AddComponent<AudioSource>();
+            }
+            audioSource.clip = startSound;
+            audioSource.Play();
             StartCoroutine(ShowCountdown());
         }
         else
@@ -55,7 +67,7 @@ public class GameManager : MonoBehaviourPunCallbacks
     [PunRPC]
     public void PlayerList()
     {
-        players = GameObject.FindGameObjectsWithTag("Player");
+        players = GameObject.FindGameObjectsWithTag("Bike");
         activePlayers.Clear();
         foreach(GameObject player in players)
         {
@@ -92,6 +104,11 @@ public class GameManager : MonoBehaviourPunCallbacks
         goImage.SetActive(true);
         yield return new WaitForSeconds(1f);
         goImage.SetActive(false);
+
+        yield return new WaitForSeconds(0.1f);
+        audioSource.clip = bikeSound;
+        audioSource.loop = true;
+        audioSource.Play();
     }
     void SpawnPlayer()
     {
