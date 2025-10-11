@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1940386636331955485}
   - component: {fileID: 3896768816999250615}
   - component: {fileID: 2490380642823210641}
+  - component: {fileID: 8860598460715936220}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -92,6 +93,20 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4819317953299033772}
   m_Enabled: 1
+--- !u!114 &8860598460715936220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4819317953299033772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38591caeca54a2f439e49a0356832b9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isSpectator: 0
+  speed: 50
 --- !u!1001 &3082505655538175443
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -174,7 +189,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e73a8910c7393614cacd340c1f047dcb, type: 3}
       propertyPath: m_TagString
-      value: TeamOrange
+      value: Bike
       objectReference: {fileID: 0}
     - target: {fileID: 1763286735532682317, guid: e73a8910c7393614cacd340c1f047dcb, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -286,6 +301,8 @@ MonoBehaviour:
   speed: 50
   trail: {fileID: 1805045935854173398, guid: 89d113d0867b7834db2ff6a8e4e1cb4d, type: 3}
   spawnInterval: 0.1
+  Team: 1
+  camara: {fileID: 1940386636331955485}
 --- !u!114 &-5351610459146541669
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -412,6 +429,14 @@ PrefabInstance:
     - target: {fileID: 370644572441349618, guid: dcd9d50782ab3fe49af64b3ea1ce7214, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4922291130840238016, guid: dcd9d50782ab3fe49af64b3ea1ce7214, type: 3}
+      propertyPath: m_VerticalAlignment
+      value: 512
+      objectReference: {fileID: 0}
+    - target: {fileID: 4922291130840238016, guid: dcd9d50782ab3fe49af64b3ea1ce7214, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5450335282987812649, guid: dcd9d50782ab3fe49af64b3ea1ce7214, type: 3}
       propertyPath: m_Name

@@ -16,10 +16,15 @@ public class CycleController : MonoBehaviour
 
     public enum teams { blue, orange }
     public teams Team;
+
+    [SerializeField] Transform camara;
+
+    [SerializeField] GameObject GameManager;
     // Start is called before the first frame update
     void Start()
     {
         isAlive = false;
+        GameManager = GameObject.Find("GameManager");
         StartCoroutine(StartAfterDelay(3f));
     }
     IEnumerator StartAfterDelay(float delay)
@@ -67,7 +72,10 @@ public class CycleController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Trail"))
         {
-            Destroy(gameObject);
+            transform.Find("Camera").GetComponent<SpectatorMode>().isSpectator = true;
+            camara.transform.SetParent(null);
+            GameManager.GetComponent<GameManager>().isDead = true;
+            gameObject.SetActive(false);
             isAlive = false;
         }
     }
@@ -75,7 +83,10 @@ public class CycleController : MonoBehaviour
     {
         if (other.CompareTag("Wall"))
         {
-            Destroy(gameObject);
+            transform.Find("Camera").GetComponent<SpectatorMode>().isSpectator = true;
+            camara.transform.SetParent(null);
+            GameManager.GetComponent<GameManager>().isDead = true;
+            gameObject.SetActive(false);
             isAlive = false;
         }
     }

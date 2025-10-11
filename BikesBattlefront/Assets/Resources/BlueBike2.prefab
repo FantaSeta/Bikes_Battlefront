@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2559930168455609493}
   - component: {fileID: 6534966865365574434}
   - component: {fileID: 1375832912543090909}
+  - component: {fileID: 8551967410214497883}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -92,6 +93,20 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6150650336352506435}
   m_Enabled: 1
+--- !u!114 &8551967410214497883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6150650336352506435}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38591caeca54a2f439e49a0356832b9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isSpectator: 0
+  speed: 50
 --- !u!1001 &5399097526771007956
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -283,6 +298,8 @@ MonoBehaviour:
   speed: 50
   trail: {fileID: 1805045935854173398, guid: a4cc9a9a5c2e0c84ca895f02d5f1723b, type: 3}
   spawnInterval: 0.1
+  Team: 0
+  camara: {fileID: 2559930168455609493}
 --- !u!114 &-5415922213318548908
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -404,6 +421,14 @@ PrefabInstance:
     - target: {fileID: 5115731121597919879, guid: 04d16b04807a41d4eb51f6a22d0182b9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5330255247673634901, guid: 04d16b04807a41d4eb51f6a22d0182b9, type: 3}
+      propertyPath: m_VerticalAlignment
+      value: 512
+      objectReference: {fileID: 0}
+    - target: {fileID: 5330255247673634901, guid: 04d16b04807a41d4eb51f6a22d0182b9, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8699501468520934904, guid: 04d16b04807a41d4eb51f6a22d0182b9, type: 3}
       propertyPath: m_Name

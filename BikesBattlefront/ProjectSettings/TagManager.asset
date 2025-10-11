@@ -7,8 +7,7 @@ TagManager:
   - Wall
   - Trail
   - Bullet
-  - TeamBlue
-  - TeamOrange
+  - Bike
   layers:
   - Default
   - TransparentFX

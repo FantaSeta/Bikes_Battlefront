@@ -17,11 +17,15 @@ public class GameManager : MonoBehaviourPunCallbacks
     [SerializeField] GameObject readyImage;
     [SerializeField] GameObject setImage;
     [SerializeField] GameObject goImage;
+    [SerializeField] public GameObject youLostImage;
 
     GameObject[] players;
     List<string> activePlayers = new List<string>();
     int checkPlayers = 0;
     [SerializeField] public TMP_Text playersText;
+    private int previousPlayerCount;
+
+    public bool isDead;
     void Start()
     {
         if (PhotonNetwork.IsConnected)
@@ -33,6 +37,20 @@ public class GameManager : MonoBehaviourPunCallbacks
         {
             Debug.LogError("No estás conectado a Photon.");
         }
+        isDead = false;
+    }
+    void Update()
+    {
+        if (PhotonNetwork.PlayerList.Length < previousPlayerCount)
+        {
+            ChangePlayersList();
+        }
+        previousPlayerCount = PhotonNetwork.PlayerList.Length;
+
+        if(isDead)
+        {
+            youLostImage.SetActive(true);
+        }
     }
     [PunRPC]
     public void PlayerList()
@@ -42,7 +60,7 @@ public class GameManager : MonoBehaviourPunCallbacks
         foreach(GameObject player in players)
         {
             // If the player is alive, then
-            if(player.GetComponent<CycleController>().isAlive == false)
+            if(player.GetComponent<CycleController>().isAlive == true)
             {
                 // Adding their nicknames to the activePlayers list
                 activePlayers.Add(player.GetComponent<PhotonView>().Owner.NickName);
@@ -55,6 +73,11 @@ public class GameManager : MonoBehaviourPunCallbacks
         }
 
         checkPlayers++;
+    }
+    [PunRPC]
+    public void ChangePlayersList()
+    {
+        photonView.RPC("PlayerList", RpcTarget.All);   
     }
     IEnumerator ShowCountdown()
     {

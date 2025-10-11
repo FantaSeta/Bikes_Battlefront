@@ -43,6 +43,7 @@ MonoBehaviour:
   - ShowPlayers
   - RotateName
   - PlayerList
+  - ChangePlayersList
   DisableAutoOpenWizard: 1
   ShowSettings: 0
   DevRegionSetOnce: 1

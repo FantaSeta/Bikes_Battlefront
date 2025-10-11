@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5468260299776264228}
   - component: {fileID: 6516188811077964074}
   - component: {fileID: 6868829850884446141}
+  - component: {fileID: 4621346960871817536}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -92,6 +93,20 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 68435526240764349}
   m_Enabled: 1
+--- !u!114 &4621346960871817536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 68435526240764349}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38591caeca54a2f439e49a0356832b9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isSpectator: 0
+  speed: 50
 --- !u!1001 &1177242629505380325
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -139,6 +154,14 @@ PrefabInstance:
     - target: {fileID: 5115731121597919879, guid: 04d16b04807a41d4eb51f6a22d0182b9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5330255247673634901, guid: 04d16b04807a41d4eb51f6a22d0182b9, type: 3}
+      propertyPath: m_VerticalAlignment
+      value: 512
+      objectReference: {fileID: 0}
+    - target: {fileID: 5330255247673634901, guid: 04d16b04807a41d4eb51f6a22d0182b9, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8699501468520934904, guid: 04d16b04807a41d4eb51f6a22d0182b9, type: 3}
       propertyPath: m_Name
@@ -356,6 +379,8 @@ MonoBehaviour:
   speed: 50
   trail: {fileID: 1805045935854173398, guid: b1c54c288b0a0184080a767ecc9b9ce5, type: 3}
   spawnInterval: 0.1
+  Team: 0
+  camara: {fileID: 5468260299776264228}
 --- !u!114 &-1219517497586668525
 MonoBehaviour:
   m_ObjectHideFlags: 0
