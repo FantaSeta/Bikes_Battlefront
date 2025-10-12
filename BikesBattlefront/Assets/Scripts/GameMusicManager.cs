@@ -1,19 +1,19 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MusicScript : MonoBehaviour
+public class GameMusicManager : MonoBehaviour
 {
     [SerializeField] private AudioClip music1;
     [SerializeField] private AudioClip music2;
 
-    [SerializeField] private string stopMusicInScene = "Game"; // Cambia esto
+    [SerializeField] private string stopMusicInScene = "Menu2"; // Cambia esto
 
-    private AudioSource audioSource;
+    public AudioSource audioSource;
 
     private void Awake()
     {
         // Asegúrate de que solo haya una instancia
-        if (FindObjectsOfType<MusicScript>().Length > 1)
+        if (FindObjectsOfType<GameMusicManager>().Length > 1)
         {
             Destroy(gameObject);
             return;

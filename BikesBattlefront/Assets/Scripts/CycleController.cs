@@ -30,7 +30,6 @@ public class CycleController : MonoBehaviour
         {
             audioSource = gameObject.AddComponent<AudioSource>();
         }
-        audioSource.clip = turning;
         StartCoroutine(StartAfterDelay(3f));
     }
     IEnumerator StartAfterDelay(float delay)
@@ -47,11 +46,13 @@ public class CycleController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.A))
         {
             transform.Rotate(0, -90, 0);
+            audioSource.clip = turning;
             audioSource.Play();
         }
         if (Input.GetKeyDown(KeyCode.D))
         {
             transform.Rotate(0, 90, 0);
+            audioSource.clip = turning;
             audioSource.Play();
         }
 
@@ -81,9 +82,11 @@ public class CycleController : MonoBehaviour
         if (collision.gameObject.CompareTag("Trail"))
         {
             transform.Find("Camera").GetComponent<SpectatorMode>().isSpectator = true;
+            transform.Find("Camera").GetComponent<SpectatorMode>().audioSource.Play();
             camara.transform.SetParent(null);
             GameObject.Find("GameManager").GetComponent<GameManager>().isDead = true;
             GameObject.Find("GameManager").GetComponent<GameManager>().audioSource.Stop();
+            GameObject.Find("GameMusicManager").GetComponent<GameMusicManager>().audioSource.volume = 0.1f;
             gameObject.SetActive(false);
             isAlive = false;
         }
@@ -93,9 +96,11 @@ public class CycleController : MonoBehaviour
         if (other.CompareTag("Wall"))
         {
             transform.Find("Camera").GetComponent<SpectatorMode>().isSpectator = true;
+            transform.Find("Camera").GetComponent<SpectatorMode>().audioSource.Play();
             camara.transform.SetParent(null);
             GameObject.Find("GameManager").GetComponent<GameManager>().isDead = true;
             GameObject.Find("GameManager").GetComponent<GameManager>().audioSource.Stop();
+            GameObject.Find("GameMusicManager").GetComponent<GameMusicManager>().audioSource.volume = 0.1f;
             gameObject.SetActive(false);
             isAlive = false;
         }
